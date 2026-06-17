@@ -1,0 +1,113 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(circle at top, rgba(244, 114, 182, 0.16), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.12), transparent 28%),
+    linear-gradient(135deg, #020617 0%, #0f172a 52%, #111827 100%);
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-shell {
+  position: relative;
+}
+
+.proposal-card {
+  position: relative;
+  isolation: isolate;
+
+  box-shadow:
+    0 20px 80px rgba(15, 23, 42, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.proposal-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(2rem - 1px);
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+
+  z-index: -1;
+}
+
+.ambient {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(50px);
+  opacity: .55;
+  pointer-events: none;
+}
+
+.ambient-one {
+  width: 18rem;
+  height: 18rem;
+  top: 4%;
+  left: 8%;
+  background: rgba(244,114,182,.35);
+}
+
+.ambient-two {
+  width: 22rem;
+  height: 22rem;
+  right: 6%;
+  bottom: 8%;
+  background: rgba(14,165,233,.2);
+}
+
+.no-btn,
+.yes-btn {
+  will-change: transform;
+}
+
+#yesBtn,
+#noBtn {
+  transition:
+    transform 0.3s ease,
+    left 0.4s ease,
+    top 0.4s ease,
+    opacity 0.4s ease;
+}
+
+#yesBtn {
+  z-index: 20;
+}
+
+#noBtn {
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .proposal-card {
+    border-radius: 1.5rem;
+  }
+
+  .proposal-card::before {
+    border-radius: calc(1.5rem - 1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .ambient {
+    display: none;
+  }
+}
